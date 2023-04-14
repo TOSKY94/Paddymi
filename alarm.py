@@ -18,6 +18,6 @@ class App():
 
 if __name__ == "__main__":
     app = App()
-    alarmTime='02:33PM'
+    alarmTime='02:35PM'
     description = 'It is time to complete your work on your research proposal'
     app.main(alarmTime, description)
