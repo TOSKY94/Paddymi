@@ -23,7 +23,7 @@ class Utilies():
         dTime = f"The time is {hour[0]} {mins} {prompt[0]}"
 
         if mode=='time':
-            return dTime
+            return dTime,hour[0], mins, prompt[0]
         elif mode=='date':
             return today
         else:
