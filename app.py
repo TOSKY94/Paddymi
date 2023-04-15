@@ -3,22 +3,22 @@ from utilities import Utilies
 import time
 
 class App():
-    def __init__(self, master) -> None:
-        self.master = master
-        master.title('Alarm')
-        master.geometry('300x200')
-        
-        self.label1 = Label(master, text='Alarm Time (HH:MM AM/PM):')
+    def __init__(self) -> None:
+        self.root = Tk()
+        self.root.title('Alarm')
+        self.root.geometry('300x200')
+
+        self.label1 = Label(self.root, text='Alarm Time (HH:MM AM/PM):')
         self.label1.pack()
-        self.alarm_time_entry = Entry(master)
+        self.alarm_time_entry = Entry(self.root)
         self.alarm_time_entry.pack()
 
-        self.label2 = Label(master, text='Description:')
+        self.label2 = Label(self.root, text='Description:')
         self.label2.pack()
-        self.description_entry = Entry(master)
+        self.description_entry = Entry(self.root)
         self.description_entry.pack()
 
-        self.set_button = Button(master, text='Set Alarm', command=self.set_alarm)
+        self.set_button = Button(self.root, text='Set Alarm', command=self.set_alarm)
         self.set_button.pack()
         
     def set_alarm(self):
@@ -37,7 +37,9 @@ class App():
                 utilities.play_audio(audio_file_path=audiofile)
                 break
 
+    def run(self):
+        self.root.mainloop()
+
 if __name__ == "__main__":
-    root = Tk()
-    app = App(root)
-    root.mainloop()
+    app = App()
+    app.run()
